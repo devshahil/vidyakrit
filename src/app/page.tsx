@@ -4,6 +4,7 @@ import styles from "./page.module.css";
 import { ArrowRight, Code, Layout, Smartphone, Settings, BarChart, Users, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import heroImg from "../../public/3d_character.png";
 import { MobileCarousel } from "@/components/ui/MobileCarousel";
 
 export default function Home() {
@@ -28,10 +29,8 @@ export default function Home() {
           </div>
           <div className={`${styles.heroImageWrapper} float-animation`}>
             <Image 
-              src="/3d_character.png" 
+              src={heroImg} 
               alt="3D Character working on software" 
-              width={800}
-              height={800}
               style={{ width: '100%', height: 'auto', display: 'block' }} 
             />
           </div>

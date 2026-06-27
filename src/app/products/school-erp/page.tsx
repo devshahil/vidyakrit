@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import Image from 'next/image';
+import erpImg from '../../../../public/erp_hero.png';
 import { Button } from "@/components/ui/Button";
 import styles from "./page.module.css";
 import { Users, CreditCard, BookOpen, UserCircle, Bus, Building, FileText, CheckCircle2, MessageSquare, PieChart, Calendar, Bell } from "lucide-react";
@@ -43,10 +44,8 @@ export default function SchoolERPPage() {
 
           <div className={`${styles.heroImageWrapper} float-animation`}>
             <Image 
-              src="/erp_hero.png" 
+              src={erpImg} 
               alt="Vidyakrit School ERP Dashboard Showcase"
-              width={1200}
-              height={800}
               style={{ width: '100%', height: 'auto', display: 'block' }} 
             />
           </div>
