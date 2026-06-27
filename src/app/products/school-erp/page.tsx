@@ -1,6 +1,12 @@
+import { Metadata } from 'next';
 import { Button } from "@/components/ui/Button";
 import styles from "./page.module.css";
 import { Users, CreditCard, BookOpen, UserCircle, Bus, Building, FileText, CheckCircle2, MessageSquare, PieChart, Calendar, Bell } from "lucide-react";
+
+export const metadata: Metadata = {
+  title: 'Best School ERP Software India | Automated Campus Management',
+  description: 'Unify your campus operations with Vidyakrit School ERP. The most comprehensive cloud-based operating system for modern schools in India. Request a demo today.',
+};
 
 export default function SchoolERPPage() {
   const modules = [

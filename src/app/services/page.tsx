@@ -1,5 +1,11 @@
 import React from 'react';
+import { Metadata } from 'next';
 import { Button } from "@/components/ui/Button";
+
+export const metadata: Metadata = {
+  title: 'Custom Website & Mobile App Development Services',
+  description: 'Vidyakrit provides premium custom website development, enterprise software, UI/UX design, and mobile app development services globally.',
+};
 import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import { ArrowRight } from "lucide-react";
 import styles from "./page.module.css";
