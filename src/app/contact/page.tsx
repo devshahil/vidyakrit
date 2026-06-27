@@ -13,9 +13,9 @@ export default function ContactPage() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.current) return;
-    
+
     setStatus('submitting');
-    
+
     try {
       await emailjs.sendForm(
         process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID!,
@@ -35,7 +35,7 @@ export default function ContactPage() {
     <section className="section" style={{ paddingTop: '10rem', paddingBottom: '6rem' }}>
       <div className="container">
         <div className={styles.splitLayout}>
-          
+
           {/* Contact Info */}
           <div className={styles.contactInfo}>
             <h1 className={styles.title}>Let's talk about your project</h1>
@@ -60,7 +60,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <span className={styles.infoTitle}>Call Us</span>
-                  <a href="tel:+919876543210" className={styles.infoText}>+91 98765 43210</a>
+                  <a href="tel:+917856936201" className={styles.infoText}>+91 98765 43210</a>
                 </div>
               </div>
 
@@ -71,9 +71,9 @@ export default function ContactPage() {
                 <div className={styles.infoContent}>
                   <span className={styles.infoTitle}>Visit Us</span>
                   <span className={styles.infoText}>
-                    123 Innovation Drive<br />
-                    Tech Park, Sector 4<br />
-                    New Delhi, India
+                    NSSO Colony<br />
+                    Khemnichak, Patna<br />
+                    Bihar, India
                   </span>
                 </div>
               </div>
@@ -84,7 +84,7 @@ export default function ContactPage() {
           <div>
             <div className={styles.formCard}>
               <h2 style={{ fontSize: '1.5rem', marginBottom: '1.5rem', fontWeight: 600 }}>Send us a message</h2>
-              
+
               {status === 'success' ? (
                 <div style={{ padding: '2rem', textAlign: 'center', background: 'var(--bg-secondary)', borderRadius: 'var(--border-radius-md)' }}>
                   <h3 style={{ fontSize: '1.25rem', marginBottom: '0.5rem', color: 'var(--color-green)' }}>Message Sent Successfully!</h3>
