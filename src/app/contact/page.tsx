@@ -60,7 +60,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <span className={styles.infoTitle}>Call Us</span>
-                  <a href="tel:+917856936201" className={styles.infoText}>+91 98765 43210</a>
+                  <a href="tel:+917856936201" className={styles.infoText}>+91 78569 36201</a>
                 </div>
               </div>
 
