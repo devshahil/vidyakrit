@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# AI Instructions and artifacts
+AGENTS.md
+CLAUDE.md
+IMAGE_REQUIREMENTS.md
+SEO_IMPLEMENTATION_PLAN.md
+apple-DESIGN*.md
+taste-SKILL.md
