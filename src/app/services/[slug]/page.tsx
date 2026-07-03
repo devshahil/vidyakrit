@@ -1,10 +1,28 @@
 import React from 'react';
 import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
 import { Button } from "@/components/ui/Button";
 import { CheckCircle2, ChevronDown, ArrowLeft } from "lucide-react";
 import styles from "./page.module.css";
 import { servicesData } from '../servicesData';
 import Link from 'next/link';
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const service = servicesData.find((s) => s.id === slug);
+  
+  if (!service) {
+    return {
+      title: 'Service Not Found | Vidyakrit'
+    };
+  }
+
+  return {
+    title: `${service.title} Services | Vidyakrit`,
+    description: service.shortDescription,
+    keywords: [service.title, `${service.title} in Patna`, "Vidyakrit Software"],
+  };
+}
 
 export function generateStaticParams() {
   return servicesData.map((service) => ({

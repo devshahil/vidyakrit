@@ -6,12 +6,17 @@ import Link from "next/link";
 import Image from "next/image";
 import heroImg from "../../public/3d_character.png";
 import { MobileCarousel } from "@/components/ui/MobileCarousel";
+import { AnimatedServices } from "@/components/home/AnimatedServices";
+import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
+import { FadeIn } from "@/components/ui/FadeIn";
 
 export default function Home() {
   return (
     <>
+      <LocalBusinessSchema />
       {/* Hero Section */}
-      <section className={`section ${styles.heroSection}`}>
+      <section className={styles.heroSection}>
+        <div className={styles.heroGlow}></div>
         <div className={`container ${styles.splitHero}`}>
           <div className={styles.splitContent}>
             <h1 className={styles.heroTitle}>
@@ -30,7 +35,7 @@ export default function Home() {
           <div className={`${styles.heroImageWrapper} float-animation`}>
             <Image 
               src={heroImg} 
-              alt="3D Character working on software" 
+              alt="Vidyakrit Software Engineering and Website Development Company in Patna" 
               style={{ width: '100%', height: 'auto', display: 'block' }} 
             />
           </div>
@@ -38,90 +43,70 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="section section-light">
+      <section className="section section-light ambientGlow">
         <div className="container">
-          <h2 className={styles.sectionTitle}>Comprehensive Technology Services</h2>
-          <p className={styles.sectionSubtitle}>
-            From custom software development to AI automation, we deliver solutions that scale with your business.
-          </p>
+          <FadeIn>
+            <h2 className={styles.sectionTitle}>Comprehensive Technology Services</h2>
+            <p className={styles.sectionSubtitle}>
+              From custom software development to AI automation, we deliver solutions that scale with your business.
+            </p>
+          </FadeIn>
 
-          <MobileCarousel className={styles.bentoGrid}>
-            <div className={styles.bentoLarge} style={{ height: '100%' }}>
-              <Card style={{ height: '100%', position: 'relative', overflow: 'hidden' }}>
-                <div style={{ position: 'relative', zIndex: 10 }}>
-                  <div className={styles.iconWrapper}>
-                    <Code size={24} color="var(--text-primary)" />
-                  </div>
-                  <CardTitle>Custom Enterprise Software</CardTitle>
-                  <CardDescription>
-                    Tailored enterprise solutions designed to digitize and scale your unique workflows.
-                  </CardDescription>
-                </div>
-              </Card>
-            </div>
-            <Card style={{ height: '100%' }}>
-              <div className={styles.iconWrapper}>
-                <Layout size={24} color="var(--text-primary)" />
-              </div>
-              <CardTitle>Web Applications</CardTitle>
-              <CardDescription>
-                High-performance web applications engineered with modern, secure technologies.
-              </CardDescription>
-            </Card>
-            <Card style={{ height: '100%' }}>
-              <div className={styles.iconWrapper}>
-                <Smartphone size={24} color="var(--text-primary)" />
-              </div>
-              <CardTitle>Mobile Development</CardTitle>
-              <CardDescription>
-                Native and cross-platform mobile experiences built to maximize user engagement.
-              </CardDescription>
-            </Card>
-          </MobileCarousel>
+          <FadeIn delay={0.2}>
+            <AnimatedServices />
+          </FadeIn>
         </div>
       </section>
 
       {/* Featured School ERP */}
       <section className={styles.sectionDark}>
         <div className="container">
-          <h2 className={styles.sectionTitle}>The Flagship School ERP</h2>
-          <p className={styles.sectionSubtitle}>
-            A complete operating system for modern educational institutions. Manage attendance, fees, exams, and communication in one unified platform.
-          </p>
+          <FadeIn>
+            <h2 className={styles.sectionTitle}>The Flagship School ERP</h2>
+            <p className={styles.sectionSubtitle}>
+              A complete operating system for modern educational institutions. Manage attendance, fees, exams, and communication in one unified platform.
+            </p>
+          </FadeIn>
 
-          <MobileCarousel className={styles.featureListDark}>
-            {[
-              { title: "Student Information System", desc: "Centralized database for all student records and academics." },
-              { title: "Automated Fee Collection", desc: "Seamless payment gateways with auto-reminders and invoicing." },
-              { title: "Academic Management", desc: "Advanced scheduling, exam grading, and report card generation." },
-              { title: "Parent & Teacher Portals", desc: "Dedicated mobile-friendly portals for real-time communication." },
-            ].map((feature, i) => (
-              <div key={i} className={styles.featureItemDark}>
-                <CheckCircle2 size={24} color="var(--color-primary-action)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                <div>
-                  <h3 className={styles.featureTextDark}>{feature.title}</h3>
-                  <p className={styles.featureDescDark}>{feature.desc}</p>
+          <FadeIn delay={0.2}>
+            <MobileCarousel className={styles.featureListDark}>
+              {[
+                { title: "Student Information System", desc: "Centralized database for all student records and academics." },
+                { title: "Automated Fee Collection", desc: "Seamless payment gateways with auto-reminders and invoicing." },
+                { title: "Academic Management", desc: "Advanced scheduling, exam grading, and report card generation." },
+                { title: "Parent & Teacher Portals", desc: "Dedicated mobile-friendly portals for real-time communication." },
+              ].map((feature, i) => (
+                <div key={i} className={styles.featureItemDark}>
+                  <CheckCircle2 size={24} color="var(--color-primary-action)" style={{ flexShrink: 0, marginTop: '2px' }} />
+                  <div>
+                    <h3 className={styles.featureTextDark}>{feature.title}</h3>
+                    <p className={styles.featureDescDark}>{feature.desc}</p>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </MobileCarousel>
+              ))}
+            </MobileCarousel>
+          </FadeIn>
 
-          <div style={{ textAlign: 'center', marginTop: 'var(--spacing-xl)' }}>
-            <Button href="/products/school-erp" size="lg" style={{ background: '#ffffff', color: 'var(--text-primary)' }}>
-              Explore all Modules <ArrowRight size={18} style={{ marginLeft: '8px' }} />
-            </Button>
-          </div>
+          <FadeIn delay={0.4}>
+            <div style={{ textAlign: 'center', marginTop: 'var(--spacing-xl)' }}>
+              <Button href="/products/school-erp" size="lg" style={{ background: '#ffffff', color: 'var(--text-primary)' }}>
+                Explore all Modules <ArrowRight size={18} style={{ marginLeft: '8px' }} />
+              </Button>
+            </div>
+          </FadeIn>
         </div>
       </section>
 
       {/* Final CTA */}
-      <section className={styles.ctaPremium}>
+      <section className={`${styles.ctaPremium} ambientGlow`}>
         <div className="container" style={{ maxWidth: '800px', position: 'relative', zIndex: 10 }}>
-          <h2 className={styles.sectionTitle}>Ready to build something extraordinary?</h2>
-          <p className={styles.sectionSubtitle}>
-            Partner with Vidyakrit to engineer scalable software solutions that drive real business growth.
-          </p>
-          <Button size="lg" href="/contact">Get in Touch</Button>
+          <FadeIn>
+            <h2 className={styles.sectionTitle}>Ready to build something extraordinary?</h2>
+            <p className={styles.sectionSubtitle}>
+              Partner with Vidyakrit to engineer scalable software solutions that drive real business growth.
+            </p>
+            <Button size="lg" href="/contact">Get in Touch</Button>
+          </FadeIn>
         </div>
       </section>
     </>

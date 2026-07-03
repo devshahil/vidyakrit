@@ -3,33 +3,37 @@ import Image from 'next/image';
 import erpImg from '../../../../public/erp_hero.png';
 import { Button } from "@/components/ui/Button";
 import styles from "./page.module.css";
-import { Users, CreditCard, BookOpen, UserCircle, Bus, Building, FileText, CheckCircle2, MessageSquare, PieChart, Calendar, Bell } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
+
+import { SoftwareApplicationSchema } from "@/components/seo/SoftwareApplicationSchema";
+import { TrustedTech } from "@/components/erp/TrustedTech";
+import { WhyVidyakrit } from "@/components/erp/WhyVidyakrit";
+import { ProductShowcase } from "@/components/erp/ProductShowcase";
+import { EnterpriseStats } from "@/components/erp/EnterpriseStats";
+import { RoadmapTimeline } from "@/components/erp/RoadmapTimeline";
+import { FoundingSchool } from "@/components/erp/FoundingSchool";
+
+// Sales Enablement Components (Priority 3)
+import { ModulesGrid } from "@/components/sales/ModulesGrid";
+import { FeatureComparison } from "@/components/sales/FeatureComparison";
+import { OperationalRoi } from "@/components/sales/OperationalRoi";
+import { ImplementationTimeline } from "@/components/sales/ImplementationTimeline";
+import { DataSecurity } from "@/components/sales/DataSecurity";
+import { DedicatedSupport } from "@/components/sales/DedicatedSupport";
+import { ExtendedFaq } from "@/components/sales/ExtendedFaq";
 
 export const metadata: Metadata = {
-  title: 'Best School ERP Software India | Automated Campus Management',
-  description: 'Unify your campus operations with Vidyakrit School ERP. The most comprehensive cloud-based operating system for modern schools in India. Request a demo today.',
+  title: 'School ERP in Patna | Best Campus Management Software India',
+  description: 'Unify your campus operations with Vidyakrit School ERP. The most comprehensive cloud-based operating system for modern schools in Patna, Bihar, and across India. Request a demo today.',
+  keywords: ["School ERP in Patna", "Best School ERP in Bihar", "School Management System", "Campus Management Software", "Vidyakrit ERP"],
 };
 
 export default function SchoolERPPage() {
-  const modules = [
-    { icon: <Users size={20} color="var(--color-blue)" />, title: "Student Management", desc: "Complete student lifecycle management from admission to alumni status." },
-    { icon: <CreditCard size={20} color="var(--color-green)" />, title: "Fee Management", desc: "Automated fee collection, receipt generation, and real-time payment tracking." },
-    { icon: <BookOpen size={20} color="var(--color-purple)" />, title: "Examination", desc: "Configure grading systems, generate report cards, and analyze academic performance." },
-    { icon: <UserCircle size={20} color="var(--color-orange)" />, title: "Parent Portal", desc: "Dedicated access for parents to track attendance, fees, and academic progress." },
-    { icon: <FileText size={20} color="var(--text-primary)" />, title: "Teacher Portal", desc: "Empower educators with tools for attendance, lesson planning, and grading." },
-    { icon: <Bus size={20} color="var(--color-pink)" />, title: "Transport", desc: "Route management, vehicle tracking, and transport fee integration." },
-    { icon: <Building size={20} color="var(--color-blue)" />, title: "Hostel", desc: "Room allocation, fee management, and visitor tracking for boarding schools." },
-    { icon: <MessageSquare size={20} color="var(--color-green)" />, title: "Communication", desc: "Integrated SMS, email, and push notifications for announcements." },
-    { icon: <PieChart size={20} color="var(--color-purple)" />, title: "Analytics & Reports", desc: "Comprehensive dashboards providing actionable insights for administrators." },
-    { icon: <Calendar size={20} color="var(--color-orange)" />, title: "Attendance", desc: "Biometric and manual attendance tracking for both students and staff." },
-    { icon: <Bell size={20} color="var(--text-primary)" />, title: "Notice Board", desc: "Digital notice boards for instant school-wide announcements." },
-    { icon: <CheckCircle2 size={20} color="var(--color-pink)" />, title: "Compliance", desc: "Automated generation of statutory reports required by educational boards." }
-  ];
-
   return (
     <>
+      <SoftwareApplicationSchema />
       {/* Hero */}
-      <section className={styles.hero}>
+      <section className={`${styles.hero} ambientGlow`}>
         <div className={`container ${styles.heroContainer}`}>
           <div className={styles.heroContent}>
             <h1 className={styles.heroTitle}>The Operating System for Modern Schools</h1>
@@ -38,7 +42,7 @@ export default function SchoolERPPage() {
             </p>
             <div className={styles.heroActions}>
               <Button size="lg" href="/contact">Request a Demo</Button>
-              <Button variant="secondary" size="lg" href="#modules">Explore Features</Button>
+              <Button variant="secondary" size="lg" href="#showcase">Explore Features</Button>
             </div>
           </div>
 
@@ -52,94 +56,33 @@ export default function SchoolERPPage() {
         </div>
       </section>
 
-      {/* Modules */}
-      <section id="modules" className="sectionDark">
-        <div className="container">
-          <h2 style={{ fontSize: 'clamp(2.5rem, 4vw, 3.5rem)', fontWeight: 700, letterSpacing: '-0.04em', textAlign: 'center', marginBottom: '3rem', color: '#ffffff' }}>Comprehensive Modules</h2>
-          
-          <div className={styles.modulesDarkGrid}>
-            {modules.map((mod, i) => (
-              <div key={i} className={styles.moduleDarkCard}>
-                <div className={styles.moduleDarkIcon}>
-                  {mod.icon}
-                </div>
-                <div>
-                  <h3 className="featureTextDark">{mod.title}</h3>
-                  <p className="featureDescDark">{mod.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Trust & Conversion Layer */}
+      <TrustedTech />
+      
+      {/* Replaced WhyVidyakrit (bento) with OperationalRoi to reduce redundancy, but keeping WhyVidyakrit as it's product specific */}
+      <WhyVidyakrit />
+      
+      <OperationalRoi />
 
-      {/* Comparison */}
-      <section className={styles.comparisonSection}>
-        <div className="container" style={{ maxWidth: '900px' }}>
-          <h2 style={{ fontSize: '2.5rem', textAlign: 'center', marginBottom: '3rem' }}>Why Vidyakrit ERP?</h2>
-          
-          <div className={styles.desktopTable}>
-            <div className={styles.tableWrapper}>
-              <table className={styles.comparisonTable}>
-                <thead>
-                  <tr>
-                    <th>Feature</th>
-                    <th>Traditional Systems</th>
-                    <th>Vidyakrit ERP</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { feature: "User Interface", trad: "Cluttered & Outdated", erp: "Premium, Clean, Intuitive" },
-                    { feature: "Parent Portal", trad: "Limited or None", erp: "Full-featured Native App & Web" },
-                    { feature: "Data Analytics", trad: "Basic Export", erp: "Real-time Actionable Insights" },
-                    { feature: "Deployment", trad: "On-premise / Slow Cloud", erp: "High-performance Cloud Architecture" },
-                    { feature: "Updates", trad: "Manual & Disruptive", erp: "Seamless & Automatic" },
-                  ].map((item, idx) => (
-                    <tr key={idx}>
-                      <td>{item.feature}</td>
-                      <td style={{ color: 'var(--text-secondary)' }}>{item.trad}</td>
-                      <td style={{ fontWeight: 500, color: 'var(--color-primary-action)' }}>{item.erp}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
+      <div id="showcase">
+        <ProductShowcase />
+      </div>
+      
+      <ModulesGrid />
+      <EnterpriseStats />
+      
+      {/* Replaced old SecuritySection with the richer DataSecurity */}
+      <DataSecurity />
 
-          <div className={styles.mobileAccordion}>
-            <div className={styles.accordionContainer}>
-              {[
-                { feature: "User Interface", trad: "Cluttered & Outdated", erp: "Premium, Clean, Intuitive" },
-                { feature: "Parent Portal", trad: "Limited or None", erp: "Full-featured Native App & Web" },
-                { feature: "Data Analytics", trad: "Basic Export", erp: "Real-time Actionable Insights" },
-                { feature: "Deployment", trad: "On-premise / Slow Cloud", erp: "High-performance Cloud Architecture" },
-                { feature: "Updates", trad: "Manual & Disruptive", erp: "Seamless & Automatic" },
-              ].map((item, idx) => (
-                <details key={idx} className={styles.accordionItem}>
-                  <summary className={styles.accordionSummary}>
-                    {item.feature}
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={styles.chevron}>
-                      <path d="m6 9 6 6 6-6"/>
-                    </svg>
-                  </summary>
-                  <div className={styles.accordionContent}>
-                    <div className={styles.accordionRow}>
-                      <span className={styles.accordionLabelTrad}>Traditional Systems</span>
-                      <span className={styles.accordionValueTrad}>{item.trad}</span>
-                    </div>
-                    <div className={styles.accordionDivider}></div>
-                    <div className={styles.accordionRow}>
-                      <span className={styles.accordionLabelErp}>Vidyakrit ERP</span>
-                      <span className={styles.accordionValueErp}>{item.erp}</span>
-                    </div>
-                  </div>
-                </details>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Replaced old ComparisonSection with the new FeatureComparison */}
+      <FeatureComparison />
+
+      <RoadmapTimeline />
+      
+      <ImplementationTimeline />
+      <DedicatedSupport />
+      <ExtendedFaq />
+
       {/* Pricing Section */}
       <section id="pricing" className="section section-light">
         <div className="container" style={{ maxWidth: '800px', textAlign: 'center' }}>
@@ -169,15 +112,7 @@ export default function SchoolERPPage() {
         </div>
       </section>
 
-      <section className="section" style={{ textAlign: 'center' }}>
-        <div className="container" style={{ maxWidth: '800px' }}>
-          <h2 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>See Vidyakrit ERP in Action</h2>
-          <p style={{ fontSize: '1.125rem', color: 'var(--text-secondary)', marginBottom: '2rem' }}>
-            Schedule a personalized demo to see how our platform can streamline your school's operations.
-          </p>
-          <Button size="lg" href="/contact">Book a Free Demo</Button>
-        </div>
-      </section>
+      <FoundingSchool />
     </>
   );
 }

@@ -7,21 +7,24 @@
   border-radius: var(--border-radius-pill);
   font-weight: 400;
   font-size: 17px;
-  transition: transform var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
-  font-family: SF Pro Text, system-ui, -apple-system, sans-serif;
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast), background-color var(--transition-fast), border-color var(--transition-fast);
+  font-family: inherit;
 }
 
 .primary {
   background: var(--gradient-primary);
   color: #ffffff;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 4px 14px rgba(0, 102, 204, 0.2);
+  box-shadow: 0 4px 14px rgba(79, 70, 229, 0.2);
 }
 
-.primary:hover, .primary:active {
-  background: var(--gradient-primary);
-  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
-  transform: scale(0.97);
+.primary:hover {
+  box-shadow: 0 8px 24px rgba(79, 70, 229, 0.35);
+  transform: translateY(-2px);
+}
+
+.primary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .secondary {
@@ -30,10 +33,15 @@
   border: 1px solid var(--color-primary-action);
 }
 
-.secondary:hover, .secondary:active {
+.secondary:hover {
   background-color: var(--bg-secondary);
   border-color: var(--color-primary-focus);
-  transform: scale(0.95);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.secondary:active {
+  transform: translateY(0) scale(0.98);
 }
 
 .ghost {

@@ -35,6 +35,11 @@ export const Footer = () => {
               <Link href="/products/school-erp#features" className={styles.link}>Features</Link>
               <Link href="/products/school-erp#pricing" className={styles.link}>Pricing</Link>
             </div>
+            <div className={styles.linksGroup}>
+              <h4 className={styles.groupTitle}>Local Services</h4>
+              <Link href="/patna/website-developer" className={styles.link}>Website Developer Patna</Link>
+              <Link href="/patna/school-erp" className={styles.link}>School ERP Patna</Link>
+            </div>
           </div>
         </div>
 
@@ -43,11 +48,6 @@ export const Footer = () => {
           <div className={styles.legalLinks} style={{ display: 'flex', gap: '1.5rem' }}>
             <Link href="/privacy-policy" className={styles.link} style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Privacy Policy</Link>
             <Link href="/terms-of-service" className={styles.link} style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Terms of Service</Link>
-          </div>
-          <div className={styles.social}>
-            <a href="#" className={styles.socialLink}>Twitter</a>
-            <a href="#" className={styles.socialLink}>LinkedIn</a>
-            <a href="#" className={styles.socialLink}>GitHub</a>
           </div>
         </div>
       </div>

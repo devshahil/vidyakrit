@@ -71,9 +71,7 @@ export default function ContactPage() {
                 <div className={styles.infoContent}>
                   <span className={styles.infoTitle}>Visit Us</span>
                   <span className={styles.infoText}>
-                    NSSO Colony<br />
-                    Khemnichak, Patna<br />
-                    Bihar, India
+                    Visitor office will open soon.
                   </span>
                 </div>
               </div>
