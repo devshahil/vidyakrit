@@ -1,16 +1,21 @@
 :root {
-  --bg-primary: #ffffff;
-  --bg-secondary: #F8FAFC;
-  --bg-parchment: #F9FAFB;
+  /* Midnight Tech Palette */
+  --bg-primary: #05050A;
+  --bg-secondary: #0F121C;
+  --bg-parchment: #131722;
   --bg-tile-dark: #1E293B;
-  --text-primary: #1d1d1f;
-  --text-secondary: #666666;
-  --border-color: rgba(0, 0, 0, 0.08);
+  --text-primary: #FFFFFF;
+  --text-secondary: #94A3B8;
+  --text-muted: #64748B;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-color-hover: rgba(255, 255, 255, 0.15);
+  --border-glow: rgba(79, 70, 229, 0.3);
 
-  --color-primary-action: #4F46E5;
-  --color-primary-focus: #4338CA;
-  --color-purple: #7C3AED;
-  --color-blue: #2563EB;
+  /* Accents */
+  --color-primary-action: #4F46E5; /* Indigo */
+  --color-primary-focus: #6366F1;
+  --color-purple: #8B5CF6;
+  --color-blue: #3B82F6;
   --color-green: #10B981;
   --color-orange: #F97316;
   --color-pink: #EC4899;
@@ -21,9 +26,10 @@
   --border-radius-xl: 32px;
   --border-radius-pill: 9999px;
 
-  --shadow-sm: inset 0 1px 0 rgba(255, 255, 255, 1), 0 4px 12px rgba(0, 0, 0, 0.05);
-  --shadow-premium: inset 0 1px 0 rgba(255, 255, 255, 1), 0 8px 24px -4px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.03);
-  --shadow-premium-hover: inset 0 1px 0 rgba(255, 255, 255, 1), 0 24px 48px -12px rgba(0, 0, 0, 0.18), 0 12px 24px -8px rgba(0, 0, 0, 0.12);
+  /* Premium SaaS Shadows (Dark Mode Optimized) */
+  --shadow-sm: inset 0 1px 1px rgba(255, 255, 255, 0.05), 0 4px 12px rgba(0, 0, 0, 0.4);
+  --shadow-premium: inset 0 1px 1px rgba(255, 255, 255, 0.08), 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 2px 6px rgba(0, 0, 0, 0.3);
+  --shadow-premium-hover: inset 0 1px 1px rgba(255, 255, 255, 0.15), inset 0 0 24px rgba(79, 70, 229, 0.08), 0 24px 48px -12px rgba(0, 0, 0, 0.8), 0 12px 24px -8px rgba(79, 70, 229, 0.3);
 
   --gradient-primary: linear-gradient(135deg, var(--color-primary-action) 0%, #7C3AED 100%);
   --gradient-subtle: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
@@ -202,6 +208,18 @@ ol {
 
 .section-light {
   background: var(--bg-secondary);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+/* Glassmorphism Utility */
+.glass-panel {
+  background: rgba(15, 18, 28, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--shadow-premium);
+  border-radius: var(--border-radius-lg);
 }
 
 /* Premium Utilities */
@@ -328,7 +346,7 @@ body.dark-theme::-webkit-scrollbar-thumb {
   border: 2px solid var(--bg-tile-dark);
 }
 
-/* --- Reusable Light Section Glow --- */
+/* --- Reusable Dark Mode Ambient Glow --- */
 .ambientGlow {
   position: relative;
   overflow: hidden;
@@ -341,17 +359,17 @@ body.dark-theme::-webkit-scrollbar-thumb {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
-  max-width: 1000px;
-  height: 80%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.08) 0%, rgba(6, 182, 212, 0.05) 50%, rgba(255, 255, 255, 0) 70%);
-  filter: blur(100px);
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  background: radial-gradient(circle, rgba(79, 70, 229, 0.15) 0%, rgba(139, 92, 246, 0.08) 35%, rgba(5, 5, 10, 0) 70%);
+  filter: blur(80px);
   z-index: 0;
   border-radius: 50%;
   pointer-events: none;
 }
 
-.ambientGlow>* {
+.ambientGlow > * {
   position: relative;
   z-index: 1;
 }

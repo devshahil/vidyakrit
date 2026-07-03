@@ -89,7 +89,7 @@ export default function Home() {
 
           <FadeIn delay={0.4}>
             <div style={{ textAlign: 'center', marginTop: 'var(--spacing-xl)' }}>
-              <Button href="/products/school-erp" size="lg" style={{ background: '#ffffff', color: 'var(--text-primary)' }}>
+              <Button href="/products/school-erp" size="lg" style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>
                 Explore all Modules <ArrowRight size={18} style={{ marginLeft: '8px' }} />
               </Button>
             </div>

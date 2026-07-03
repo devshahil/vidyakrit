@@ -6,19 +6,20 @@
   z-index: 50;
   padding: var(--spacing-xs) var(--spacing-md);
   transition: all var(--transition-normal);
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(10, 15, 25, 0.6);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 100px;
   width: calc(100% - var(--spacing-md) * 2);
   max-width: 1000px;
-  box-shadow: var(--shadow-sm);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
 }
 
 .scrolled {
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(5, 5, 10, 0.85);
   box-shadow: var(--shadow-premium);
+  border-color: rgba(255, 255, 255, 0.15);
 }
 
 .container {
