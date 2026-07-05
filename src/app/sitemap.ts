@@ -6,7 +6,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://vidyakrit.in';
 
   // Core pages
-  const routes = [
+  const coreRoutes = [
     '',
     '/services',
     '/products/school-erp',
@@ -14,14 +14,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/about',
     '/contact',
     '/careers',
+    '/blog',
   ].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly' as const,
-    priority: route === '' ? 1 : 0.8,
+    priority: route === '' ? 1 : 0.9,
   }));
 
-  // Add individual services (assuming these paths exist or will exist)
+  // Local SEO Pages (High Priority)
+  const localRoutes = [
+    '/patna/school-erp',
+    '/patna/website-developer',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.9,
+  }));
+
+  // Individual services
   const serviceRoutes = [
     '/services/custom-software',
     '/services/web-development',
@@ -32,8 +44,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     url: `${baseUrl}${route}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'monthly' as const,
-    priority: 0.6,
+    priority: 0.8,
   }));
 
-  return [...routes, ...serviceRoutes];
+  // Content & Legal
+  const contentRoutes = [
+    '/blog/how-we-scaled-school-erp',
+    '/privacy-policy',
+    '/terms-of-service',
+  ].map((route) => ({
+    url: `${baseUrl}${route}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.5,
+  }));
+
+  return [...coreRoutes, ...localRoutes, ...serviceRoutes, ...contentRoutes];
 }
