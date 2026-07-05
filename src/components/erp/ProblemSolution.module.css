@@ -1,0 +1,135 @@
+.container {
+  padding: var(--spacing-section) 0;
+  background: var(--bg-primary);
+}
+
+.header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 64px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+  }
+}
+
+.card {
+  border-radius: 24px;
+  padding: 40px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.cardOld {
+  background: #fafafc;
+  border: 1px solid var(--border-color);
+}
+
+.cardNew {
+  background: var(--bg-tile-dark);
+  border: 1px solid var(--bg-tile-dark-2);
+  color: #fff;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.iconWrap {
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconWrapOld {
+  background: rgba(255, 95, 86, 0.1);
+  color: #ff5f56;
+}
+
+.iconWrapNew {
+  background: rgba(39, 201, 63, 0.15);
+  color: #27c93f;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+.cardOld .title { color: var(--text-primary); }
+.cardNew .title { color: #fff; }
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.listItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.listIcon {
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+.cardOld .listIcon { color: #ff5f56; }
+.cardNew .listIcon { color: #27c93f; }
+
+.listText {
+  font-size: 15px;
+  line-height: 1.6;
+}
+.cardOld .listText { color: var(--text-secondary); }
+.cardNew .listText { color: #a1a1a6; }
+
+.highlight {
+  font-weight: 600;
+}
+.cardOld .highlight { color: var(--text-primary); }
+.cardNew .highlight { color: #fff; }
+
+.badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  padding: 6px 12px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badgeOld {
+  background: rgba(255, 95, 86, 0.1);
+  color: #ff5f56;
+}
+
+.badgeNew {
+  background: var(--color-primary-action);
+  color: #fff;
+}

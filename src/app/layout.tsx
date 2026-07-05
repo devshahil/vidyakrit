@@ -62,7 +62,7 @@ export default function RootLayout({
     <html lang="en" className={`${inter.className} ${inter.variable} ${montserrat.variable}`}>
       <body>
         <Navbar />
-        <main style={{ flex: 1, paddingTop: 'calc(var(--spacing-md) + 80px)' }}>{children}</main>
+        <main style={{ flex: 1, paddingTop: '80px' }}>{children}</main>
         <Footer />
         <WhatsAppButton />
         <ExitIntentModal />

@@ -1,0 +1,188 @@
+.visualContainer {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  aspect-ratio: 16/11;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Browser Frame */
+.browserFrame {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85%;
+  height: 85%;
+  background: var(--bg-primary);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideUpFade 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.browserHeader {
+  height: 32px;
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-color);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dotClose { background: #ff5f56; }
+.dotMin { background: #ffbd2e; }
+.dotMax { background: #27c93f; }
+
+.browserContent {
+  flex: 1;
+  background: #f8fafc;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.mockNav {
+  height: 48px;
+  background: #fff;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+}
+
+.mockNavLine {
+  height: 12px;
+  width: 120px;
+  background: #cbd5e1;
+  border-radius: 6px;
+}
+
+.mockGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 1;
+}
+
+.mockCard {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+}
+
+.mockCardLine {
+  height: 8px;
+  background: #f1f5f9;
+  border-radius: 4px;
+}
+.mockCardLine:nth-child(1) { width: 40%; background: #94a3b8; height: 12px; }
+.mockCardLine:nth-child(2) { width: 100%; }
+.mockCardLine:nth-child(3) { width: 80%; }
+.mockCardLine:nth-child(4) { width: 90%; }
+
+/* Mobile Frame */
+.mobileFrame {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 28%;
+  height: 75%;
+  background: #ffffff;
+  border: 8px solid #1e293b;
+  border-radius: 36px;
+  box-shadow: -20px 20px 60px rgba(0, 0, 0, 0.2), inset 0 0 0 1px rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: slideRightFade 1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  opacity: 0;
+  z-index: 10;
+}
+
+.mobileNotch {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 24px;
+  background: #1e293b;
+  border-radius: 0 0 12px 12px;
+  z-index: 20;
+}
+
+.mobileContent {
+  flex: 1;
+  background: #f1f5f9;
+  padding: 36px 12px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.mobileAppCard {
+  background: #fff;
+  border-radius: 12px;
+  padding: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mobileAppIcon {
+  width: 32px;
+  height: 32px;
+  background: rgba(0, 102, 204, 0.1);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-primary-action);
+}
+
+.mobileAppLines {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.mobileLine {
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+}
+.mobileLine:first-child {
+  width: 70%;
+  background: #94a3b8;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideRightFade {
+  from { opacity: 0; transform: translate(-20px, 20px); }
+  to { opacity: 1; transform: translate(0, 0); }
+}

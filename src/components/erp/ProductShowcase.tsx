@@ -1,107 +1,97 @@
 "use client";
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
+import styles from './ProductShowcase.module.css';
+import { Monitor, Tablet, Smartphone } from 'lucide-react';
+import { FadeIn } from '@/components/ui/FadeIn';
 
 const showcases = [
   { 
-    title: "Student Dashboard", 
-    desc: "A comprehensive, 360-degree view of every student. Track attendance, academic performance, disciplinary records, and health information from one unified interface.",
-    imgSrc: "/images/student_dashboard.webp"
+    id: 'desktop',
+    label: 'Desktop Admin',
+    icon: <Monitor size={18} />,
+    title: "Master Control Dashboard", 
+    desc: "A comprehensive, 360-degree view of your entire institution. Handle massive bulk operations, complex scheduling, and deep financial analytics from a powerful desktop interface engineered for speed.",
+    imgSrc: "/images/student_dashboard.webp",
+    deviceClass: styles.desktop
   },
   { 
-    title: "Fee Collection & Billing", 
-    desc: "Automate invoice generation, send payment reminders, and process secure online transactions. Get real-time visibility into your institution's cash flow.",
-    imgSrc: "/images/fee_collection.webp"
+    id: 'tablet',
+    label: 'Teacher Tablet',
+    icon: <Tablet size={18} />,
+    title: "Interactive Classroom Hub", 
+    desc: "Optimized for the classroom. Teachers can take lightning-fast roll calls, grade assignments on the fly, and project interactive learning materials directly from their iPad or Android tablet.",
+    imgSrc: "/images/fee_collection.webp",
+    deviceClass: styles.tablet
   },
   { 
-    title: "Smart Attendance System", 
-    desc: "Mark student attendance in seconds with bulk actions. For staff, our mobile app uses GPS geofencing to ensure they can only check in when physically present at the school campus.",
-    imgSrc: "/images/attendance_system.webp"
-  },
-  { 
-    title: "Analytics Dashboard", 
-    desc: "Empower administrators with actionable data. Visualize attendance trends, financial health, and academic performance through interactive charts.",
-    imgSrc: "/images/analytics_dashboard.webp"
+    id: 'mobile',
+    label: 'Parent Mobile App',
+    icon: <Smartphone size={18} />,
+    title: "Real-Time Parent Portal", 
+    desc: "A beautifully native mobile experience keeping parents in the loop. Push notifications for attendance, instant fee payment gateways, and live academic progress tracking in their pocket.",
+    imgSrc: "/images/attendance_system.webp",
+    deviceClass: styles.mobile
   }
 ];
 
 export const ProductShowcase = () => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const activeShowcase = showcases[activeIndex];
+
   return (
-    <section style={{ padding: '8rem 0', background: 'var(--bg-secondary)' }}>
+    <section className={styles.container}>
       <div className="container">
-        <div style={{ textAlign: 'center', marginBottom: '6rem', maxWidth: '800px', margin: '0 auto' }}>
-          <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1.5rem', letterSpacing: '-0.04em' }}>
-            Explore the Vidyakrit Platform
-          </h2>
-          <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
-            See how every module works together seamlessly to simplify school management, reduce administrative burden, and improve communication.
-          </p>
-        </div>
+        <FadeIn>
+          <div className={styles.header}>
+            <h2 className="display-section">One OS. Every Device.</h2>
+            <p className="text-body-premium">
+              Vidyakrit ERP is natively responsive. Whether it's the principal on a desktop, a teacher on a tablet, or a parent on a smartphone, the interface adapts perfectly to provide exactly what they need.
+            </p>
+          </div>
+        </FadeIn>
 
-        <div style={{ display: 'flex', flexDirection: 'column', gap: '8rem' }}>
-          {showcases.map((showcase, index) => {
-            const isEven = index % 2 === 0;
-            return (
-              <div 
-                key={index} 
-                style={{ 
-                  display: 'flex', 
-                  flexDirection: isEven ? 'row' : 'row-reverse',
-                  alignItems: 'center',
-                  gap: '4rem',
-                  flexWrap: 'wrap'
-                }}
+        <FadeIn delay={0.1}>
+          <div className={styles.tabs}>
+            {showcases.map((showcase, index) => (
+              <button
+                key={showcase.id}
+                onClick={() => setActiveIndex(index)}
+                className={`${styles.tabBtn} ${activeIndex === index ? styles.tabActive : ''}`}
               >
-                {/* Text Content */}
-                <div style={{ flex: '1 1 400px', padding: '2rem 0' }}>
-                  <h3 style={{ fontSize: '2.5rem', fontWeight: 700, marginBottom: '1rem', letterSpacing: '-0.03em' }}>
-                    {showcase.title}
-                  </h3>
-                  <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', lineHeight: 1.7 }}>
-                    {showcase.desc}
-                  </p>
-                </div>
+                {showcase.icon} {showcase.label}
+              </button>
+            ))}
+          </div>
+        </FadeIn>
 
-                {/* Mockup Image */}
-                <div 
-                  style={{ 
-                    flex: '1 1 500px', 
-                    position: 'relative',
-                    borderRadius: '24px',
-                    padding: '8px',
-                    background: 'linear-gradient(135deg, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%)',
-                    boxShadow: '0 30px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255,255,255,1)',
-                    backdropFilter: 'blur(20px)',
-                    transition: 'transform 0.4s ease, box-shadow 0.4s ease',
-                  }}
-                  onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                    e.currentTarget.style.boxShadow = '0 40px 80px rgba(0, 0, 0, 0.2), inset 0 1px 0 rgba(255,255,255,1)';
-                  }}
-                  onMouseLeave={(e) => {
-                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                    e.currentTarget.style.boxShadow = '0 30px 60px rgba(0, 0, 0, 0.12), inset 0 1px 0 rgba(255,255,255,1)';
-                  }}
-                >
-                  <div style={{ position: 'relative', width: '100%', borderRadius: '16px', overflow: 'hidden', background: '#f5f5f5', display: 'flex' }}>
-                    {/* Placeholder fallback if image isn't uploaded yet */}
-                    <div style={{ position: 'absolute', inset: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#999', zIndex: 1 }}>
-                      [Image: {showcase.imgSrc}]
-                    </div>
-                    <Image 
-                      src={showcase.imgSrc} 
-                      alt={`${showcase.title} Interface`}
-                      width={1200}
-                      height={800}
-                      style={{ width: '100%', height: 'auto', objectFit: 'contain', zIndex: 2, position: 'relative' }}
-                    />
-                  </div>
+        <FadeIn delay={0.2} key={activeIndex}>
+          <div className={styles.showcaseArea}>
+            <div className={styles.textContent}>
+              <h3 className={styles.featureTitle}>{activeShowcase.title}</h3>
+              <p className={styles.featureDesc}>{activeShowcase.desc}</p>
+            </div>
+
+            <div className={styles.deviceContainer}>
+              <div className={`${styles.deviceWrapper} ${activeShowcase.deviceClass}`}>
+                {activeShowcase.id === 'mobile' && <div className={styles.notch}></div>}
+                <div className={styles.deviceScreen}>
+                  <div className={styles.imgFallback}>[Image: {activeShowcase.imgSrc}]</div>
+                  {/* Using standard img tag if images are missing, or Next Image if they exist. Using object-cover to fill frame. */}
+                  <Image 
+                    src={activeShowcase.imgSrc} 
+                    alt={activeShowcase.title}
+                    fill
+                    style={{ objectFit: 'cover', zIndex: 2 }}
+                    priority
+                  />
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </div>
+          </div>
+        </FadeIn>
+
       </div>
     </section>
   );

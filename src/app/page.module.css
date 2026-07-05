@@ -1,25 +1,16 @@
+/* product-tile-light: white canvas, 80px section padding, zero chrome */
 .heroSection {
-  background: var(--gradient-subtle);
-  border-bottom: 1px solid var(--border-color);
-  padding-top: 4rem;
-  padding-bottom: 4rem;
+  background-color: var(--bg-primary);
+  border-bottom: none;
+  padding-top: var(--spacing-section);
+  padding-bottom: var(--spacing-section);
   position: relative;
   overflow: hidden;
 }
 
+/* Removed — Apple has no decorative radial gradient glows */
 .heroGlow {
-  position: absolute;
-  top: 15%;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 70%;
-  max-width: 900px;
-  height: 70%;
-  background: radial-gradient(circle, rgba(79, 70, 229, 0.25) 0%, rgba(139, 92, 246, 0.15) 40%, rgba(5, 5, 10, 0) 70%);
-  filter: blur(100px);
-  z-index: 0;
-  border-radius: 50%;
-  pointer-events: none;
+  display: none;
 }
 
 .splitHero {
@@ -56,13 +47,15 @@
   }
 }
 
+/* Apple hero-display: 56px / 600 / 1.07 / -0.28px (handled by h1 in globals) */
 .heroTitle {
-  font-size: clamp(2.5rem, 4.5vw, 4.5rem);
-  font-weight: 700;
-  line-height: 1.1;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.5rem;
-  max-width: 900px;
+  font-size: clamp(2.125rem, 1.8rem + 3.5vw, 3.5rem);
+  font-weight: 600;
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+  max-width: 700px;
+  color: var(--text-primary);
 }
 
 @media (min-width: 768px) {
@@ -72,12 +65,15 @@
   }
 }
 
+/* Apple lead: 28px / 400 / 1.14 */
 .heroSubtitle {
-  font-size: clamp(1rem, 1.5vw, 1.5rem);
+  font-size: clamp(1.0625rem, 1rem + 1vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.012em;
   color: var(--text-secondary);
-  max-width: 600px;
-  margin-bottom: 2.5rem;
-  line-height: 1.6;
+  max-width: 560px;
+  margin-bottom: 32px;
 }
 
 @media (min-width: 768px) {
@@ -120,12 +116,12 @@
   }
 }
 
+/* Product renders get the single Apple shadow — no box decoration */
 .heroImageWrapper {
   position: relative;
-  border-radius: var(--border-radius-xl, 32px);
-  overflow: hidden;
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 1), 0 20px 40px rgba(0, 0, 0, 0.08);
-  border: 1px solid rgba(0,0,0,0.05);
+  border-radius: 0;
+  overflow: visible;
+  box-shadow: var(--shadow-product);
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
@@ -244,38 +240,47 @@
 }
 
 /* Sections */
+/* Apple display-lg: 40px / 600 / 1.10 / -0.02em */
 .sectionTitle {
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
-  margin-bottom: var(--spacing-sm);
+  font-size: clamp(1.75rem, 1.5rem + 2vw, 2.5rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
   text-align: center;
+  color: inherit;
 }
 
+/* Apple lead: 28px / 400 / 1.14 */
 .sectionSubtitle {
-  font-size: clamp(1.125rem, 2vw, 1.375rem);
-  color: var(--text-secondary);
+  font-size: clamp(1.0625rem, 1rem + 0.75vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.14;
+  letter-spacing: 0.012em;
+  color: inherit;
+  opacity: 0.75;
   text-align: center;
-  margin-bottom: var(--spacing-xl);
-  max-width: 650px;
+  margin-bottom: var(--spacing-xxl);
+  max-width: 600px;
   margin-inline: auto;
 }
 
-/* Immersive Dark Section */
+/* Apple product-tile-dark: #272729, no decorative backgrounds */
 .sectionDark {
   background-color: var(--bg-tile-dark);
-  color: #ffffff;
-  padding: var(--spacing-xl) 0;
+  color: var(--text-on-dark);
+  padding: var(--spacing-section) 0;
   position: relative;
   overflow: hidden;
 }
 
 .sectionDark .sectionTitle {
-  color: #ffffff;
+  color: var(--text-on-dark);
 }
 
 .sectionDark .sectionSubtitle {
-  color: #a1a1aa;
+  color: var(--text-muted-dark);
+  opacity: 1;
 }
 
 /* Dark Feature List */
@@ -292,16 +297,17 @@
   }
 }
 
+/* Dark feature cards: surface only, no shadows */
 .featureItemDark {
   display: flex;
   align-items: flex-start;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: var(--spacing-md);
+  gap: 12px;
+  padding: 24px;
   border-radius: var(--border-radius-lg);
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all var(--transition-normal);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
 }
 
 @media (min-width: 768px) {
@@ -328,13 +334,18 @@
   color: #a1a1aa;
 }
 
-/* Premium CTA */
+/* Apple: no shadow on CTA section — border-top is the section divider */
 .ctaPremium {
   position: relative;
-  background: var(--bg-primary);
-  padding: var(--spacing-xl) 0;
+  background-color: var(--bg-secondary); /* parchment tile alternates with white hero */
+  padding: var(--spacing-section) 0;
   text-align: center;
-  border-top: 1px solid var(--border-color);
+}
+
+/* Apple parchment tile — #f5f5f7, alternates with white sections */
+.sectionParchment {
+  background-color: var(--bg-secondary);
+  padding: var(--spacing-section) 0;
 }
 
 /* Bento Grid */
@@ -410,4 +421,34 @@
   .statsGrid {
     grid-template-columns: repeat(4, 1fr);
   }
+}
+
+.heroMetrics {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  width: 100%;
+  margin-top: 48px;
+  border-top: 1px solid var(--border-color);
+  padding-top: 32px;
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricValue {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1;
+}
+
+.metricLabel {
+  font-size: 12px;
+  color: var(--text-secondary);
+  font-weight: 400;
+  letter-spacing: -0.01em;
 }

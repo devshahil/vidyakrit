@@ -16,12 +16,12 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero Header */}
-      <section className="ambientGlow" style={{ paddingTop: '10rem', paddingBottom: '6rem', background: 'var(--bg-primary)' }}>
+      <section className="ambientGlow" style={{ paddingTop: '8rem', paddingBottom: '4rem', background: 'var(--bg-primary)' }}>
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.1 }}>
+          <h1 style={{ fontSize: 'clamp(2.5rem, 5vw, 4rem)', marginBottom: '1.25rem', fontWeight: 600, letterSpacing: '-0.02em', lineHeight: 1.07 }}>
             Your Long-Term Digital Partner
           </h1>
-          <p style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.5rem)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+          <p style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.35rem)', color: 'var(--text-secondary)', lineHeight: 1.5, maxWidth: '750px', margin: '0 auto' }}>
             We don't just sell software. We provide a complete ecosystem of engineering services designed to transform how your organization operates.
           </p>
         </div>

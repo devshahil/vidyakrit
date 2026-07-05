@@ -1,0 +1,178 @@
+.container {
+  padding: 8rem 0;
+  background: var(--bg-secondary);
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+  margin-inline: auto;
+}
+
+.tabs {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 64px;
+  background: rgba(0, 0, 0, 0.04);
+  padding: 6px;
+  border-radius: 99px;
+  width: max-content;
+  margin-inline: auto;
+}
+
+.tabBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 24px;
+  border-radius: 99px;
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.tabBtn:hover {
+  color: var(--text-primary);
+}
+
+.tabActive {
+  background: #fff;
+  color: var(--color-primary-action);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.showcaseArea {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+}
+
+.textContent {
+  text-align: center;
+  max-width: 600px;
+  animation: slideUp 0.4s ease forwards;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.featureTitle {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 16px;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+}
+
+.featureDesc {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Device Frames */
+.deviceContainer {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  perspective: 1000px;
+  min-height: 400px;
+}
+
+.deviceWrapper {
+  position: relative;
+  transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  transform-style: preserve-3d;
+}
+
+.deviceScreen {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.imgFallback {
+  color: #999;
+  font-size: 14px;
+  position: absolute;
+}
+
+/* Specific Devices */
+.desktop {
+  width: 100%;
+  max-width: 900px;
+  aspect-ratio: 16/10;
+  background: #e2e8f0;
+  padding: 16px 16px 24px;
+  border-radius: 24px 24px 0 0;
+  border: 1px solid #cbd5e1;
+  box-shadow: 0 40px 80px rgba(0, 0, 0, 0.15);
+}
+
+.desktop .deviceScreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  border: 1px solid #e2e8f0;
+}
+
+.tablet {
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 3/4;
+  background: #1e293b;
+  padding: 24px;
+  border-radius: 36px;
+  border: 4px solid #cbd5e1;
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+}
+
+.tablet .deviceScreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+}
+
+.mobile {
+  width: 100%;
+  max-width: 320px;
+  aspect-ratio: 9/19;
+  background: #1e293b;
+  padding: 12px;
+  border-radius: 40px;
+  border: 4px solid #cbd5e1;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+.mobile .deviceScreen {
+  width: 100%;
+  height: 100%;
+  border-radius: 28px;
+}
+
+.notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  height: 24px;
+  background: #1e293b;
+  border-radius: 0 0 12px 12px;
+  z-index: 10;
+}

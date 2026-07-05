@@ -3,12 +3,12 @@ import { Card, CardTitle, CardDescription } from "@/components/ui/Card";
 import styles from "./page.module.css";
 import { ArrowRight, Code, Layout, Smartphone, Settings, BarChart, Users, CheckCircle2 } from "lucide-react";
 import Link from "next/link";
-import Image from "next/image";
-import heroImg from "../../public/3d_character.png";
 import { MobileCarousel } from "@/components/ui/MobileCarousel";
 import { AnimatedServices } from "@/components/home/AnimatedServices";
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema";
 import { FadeIn } from "@/components/ui/FadeIn";
+import { HeroMockup } from "@/components/home/HeroMockup";
+import { ErpGateway } from "@/components/home/ErpGateway";
 
 export default function Home() {
   return (
@@ -16,14 +16,13 @@ export default function Home() {
       <LocalBusinessSchema />
       {/* Hero Section */}
       <section className={styles.heroSection}>
-        <div className={styles.heroGlow}></div>
         <div className={`container ${styles.splitHero}`}>
           <div className={styles.splitContent}>
             <h1 className={styles.heroTitle}>
-              We Build Software That Solves Real Business Problems.
+              We engineer high-performance systems for complex business operations.
             </h1>
             <p className={styles.heroSubtitle}>
-              We build premium software solutions and enterprise-grade applications. Discover our flagship School ERP designed to transform educational institutions.
+              Vidyakrit is a premium software lab. We build custom enterprise applications and our flagship School ERP—designed, coded, and deployed to run your organization flawlessly.
             </p>
             <div className={styles.heroActions}>
               <Button size="lg" href="/contact" className={styles.heroBtn}>Book Consultation</Button>
@@ -31,19 +30,31 @@ export default function Home() {
                 Explore School ERP
               </Button>
             </div>
+            
+            {/* Trust Metrics Row */}
+            <div className={styles.heroMetrics}>
+              <div className={styles.metricItem}>
+                <span className={styles.metricValue}>10k+</span>
+                <span className={styles.metricLabel}>Students Managed</span>
+              </div>
+              <div className={styles.metricItem}>
+                <span className={styles.metricValue}>99.9%</span>
+                <span className={styles.metricLabel}>System Uptime</span>
+              </div>
+              <div className={styles.metricItem}>
+                <span className={styles.metricValue}>100%</span>
+                <span className={styles.metricLabel}>Audited Codebase</span>
+              </div>
+            </div>
           </div>
-          <div className={`${styles.heroImageWrapper} float-animation`}>
-            <Image 
-              src={heroImg} 
-              alt="Vidyakrit Software Engineering and Website Development Company in Patna" 
-              style={{ width: '100%', height: 'auto', display: 'block' }} 
-            />
+          <div className={styles.heroImageWrapper}>
+            <HeroMockup />
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="section section-light ambientGlow">
+      {/* Services Overview — parchment tile (alternates with white hero) */}
+      <section className={`section ${styles.sectionParchment}`}>
         <div className="container">
           <FadeIn>
             <h2 className={styles.sectionTitle}>Comprehensive Technology Services</h2>
@@ -58,7 +69,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured School ERP */}
+      {/* Featured School ERP — Apple product-tile-dark (#272729) */}
       <section className={styles.sectionDark}>
         <div className="container">
           <FadeIn>
@@ -69,27 +80,12 @@ export default function Home() {
           </FadeIn>
 
           <FadeIn delay={0.2}>
-            <MobileCarousel className={styles.featureListDark}>
-              {[
-                { title: "Student Information System", desc: "Centralized database for all student records and academics." },
-                { title: "Automated Fee Collection", desc: "Seamless payment gateways with auto-reminders and invoicing." },
-                { title: "Academic Management", desc: "Advanced scheduling, exam grading, and report card generation." },
-                { title: "Parent & Teacher Portals", desc: "Dedicated mobile-friendly portals for real-time communication." },
-              ].map((feature, i) => (
-                <div key={i} className={styles.featureItemDark}>
-                  <CheckCircle2 size={24} color="var(--color-primary-action)" style={{ flexShrink: 0, marginTop: '2px' }} />
-                  <div>
-                    <h3 className={styles.featureTextDark}>{feature.title}</h3>
-                    <p className={styles.featureDescDark}>{feature.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </MobileCarousel>
+            <ErpGateway />
           </FadeIn>
 
           <FadeIn delay={0.4}>
-            <div style={{ textAlign: 'center', marginTop: 'var(--spacing-xl)' }}>
-              <Button href="/products/school-erp" size="lg" style={{ background: 'var(--bg-secondary)', color: 'var(--text-primary)' }}>
+            <div style={{ textAlign: 'center', marginTop: '48px' }}>
+              <Button href="/products/school-erp" size="lg">
                 Explore all Modules <ArrowRight size={18} style={{ marginLeft: '8px' }} />
               </Button>
             </div>
@@ -97,8 +93,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Final CTA */}
-      <section className={`${styles.ctaPremium} ambientGlow`}>
+      {/* Final CTA — parchment tile */}
+      <section className={styles.ctaPremium}>
         <div className="container" style={{ maxWidth: '800px', position: 'relative', zIndex: 10 }}>
           <FadeIn>
             <h2 className={styles.sectionTitle}>Ready to build something extraordinary?</h2>

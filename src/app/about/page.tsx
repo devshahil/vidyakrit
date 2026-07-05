@@ -18,12 +18,12 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero Header */}
-      <section className="ambientGlow" style={{ paddingTop: '10rem', paddingBottom: '6rem', background: 'var(--bg-primary)' }}>
+      <section className="ambientGlow hero-padding" style={{ background: 'var(--bg-primary)' }}>
         <div className="container" style={{ maxWidth: '900px', margin: '0 auto', textAlign: 'center' }}>
-          <h1 style={{ fontSize: 'clamp(3rem, 6vw, 4.5rem)', marginBottom: '1.5rem', fontWeight: 800, letterSpacing: '-0.04em', lineHeight: 1.1 }}>
+          <h1 className="display-hero">
             Building the Future of Educational Technology
           </h1>
-          <p style={{ fontSize: 'clamp(1.125rem, 1.8vw, 1.5rem)', color: 'var(--text-secondary)', lineHeight: 1.6 }}>
+          <p className="text-body-premium">
             We are a premium software engineering firm dedicated to replacing outdated manual processes with modern, secure, and intuitive enterprise applications.
           </p>
         </div>

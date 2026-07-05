@@ -85,7 +85,7 @@ export const Navbar = () => {
         </div>
 
         <div className={styles.mobileActions}>
-          <Button href="/contact" size="lg" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
+          <Button href="/contact" size="lg" className={styles.wFull} onClick={() => setIsMobileMenuOpen(false)}>
             Book Consultation
           </Button>
         </div>

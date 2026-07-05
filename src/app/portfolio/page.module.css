@@ -1,17 +1,22 @@
 .header {
-  padding: 6rem 0 4rem;
+  padding: var(--spacing-section) 0 40px;
   text-align: center;
   background: var(--bg-primary);
 }
 
 .title {
-  font-size: clamp(1.2rem, 4vw, 4rem);
+  font-size: clamp(2.125rem, 1.8rem + 3.5vw, 3.5rem);
   font-weight: 600;
-  margin-bottom: var(--spacing-sm);
+  line-height: 1.07;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: clamp(0.7rem, 1.5vw, 1.25rem);
+  font-size: clamp(1.0625rem, 1rem + 0.75vw, 1.25rem);
+  font-weight: 400;
+  line-height: 1.5;
   color: var(--text-secondary);
   max-width: 600px;
   margin-inline: auto;
@@ -20,75 +25,88 @@
 .filters {
   display: flex;
   justify-content: center;
-  gap: var(--spacing-sm);
-  margin-bottom: var(--spacing-xl);
+  gap: 8px;
+  margin-bottom: 48px;
   flex-wrap: wrap;
 }
 
 .filterBtn {
-  padding: 0.5rem 1.5rem;
-  border-radius: 100px;
+  padding: 6px 16px;
+  border-radius: 9999px;
   border: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  color: var(--text-secondary);
+  font-size: 14px;
   font-weight: 500;
+  cursor: pointer;
   transition: all var(--transition-fast);
 }
 
-.filterBtn:hover, .filterBtnActive {
+.filterBtn:hover {
+  color: var(--text-primary);
+  border-color: var(--text-primary);
+}
+
+.filterBtnActive {
   background: var(--text-primary);
   color: var(--bg-primary);
   border-color: var(--text-primary);
 }
 
-
-
 .projectCard {
   position: relative;
-  display: block;
-  border-radius: var(--border-radius-lg);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--border-radius-xl);
   overflow: hidden;
   background: var(--bg-secondary);
   border: 1px solid var(--border-color);
-  transition: transform var(--transition-normal);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .projectCard:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-product);
 }
 
 .projectImageWrapper {
-  aspect-ratio: 4/3;
+  aspect-ratio: 16/10;
   width: 100%;
-  background: #e5e5e5;
+  background: var(--bg-secondary);
   position: relative;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-bottom: 1px solid var(--border-color);
 }
 
-
-
 .projectInfo {
-  padding: var(--spacing-md);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .projectCategory {
-  font-size: 0.875rem;
+  font-size: 11px;
   font-weight: 600;
-  color: var(--color-blue);
-  margin-bottom: var(--spacing-xs);
+  color: var(--color-primary-action);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
 .projectTitle {
-  font-size: 1.5rem;
+  font-size: 20px;
   font-weight: 600;
-  margin-bottom: var(--spacing-xs);
   color: var(--text-primary);
+  letter-spacing: -0.01em;
+  margin: 0;
 }
 
 .projectDesc {
+  font-size: 15px;
   color: var(--text-secondary);
   line-height: 1.5;
+  margin: 0;
 }
