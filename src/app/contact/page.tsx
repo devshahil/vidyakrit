@@ -50,7 +50,7 @@ export default function ContactPage() {
                 </div>
                 <div className={styles.infoContent}>
                   <span className={styles.infoTitle}>Email Us</span>
-                  <a href="mailto:hello@vidyakrit.com" className={styles.infoText}>hello@vidyakrit.com</a>
+                  <a href="mailto:hello@vidyakrit.com" className={styles.infoText}>hello@vidyakrit.in</a>
                 </div>
               </div>
 
