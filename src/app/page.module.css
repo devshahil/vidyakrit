@@ -1,454 +1,242 @@
-/* product-tile-light: white canvas, 80px section padding, zero chrome */
+/* ==========================================================================
+   HOMEPAGE STYLES — EXECUTIVE / PREMIUM EDITORIAL DESIGN
+   ========================================================================== */
+
+/* Hero Section — Centered, Authoritative Executive Layout */
 .heroSection {
-  background-color: var(--bg-primary);
-  border-bottom: none;
-  padding-top: var(--spacing-section);
-  padding-bottom: var(--spacing-section);
+  background: #ffffff;
+  padding-top: clamp(3rem, 7vw, 6.5rem);
+  padding-bottom: clamp(3.5rem, 8vw, 7rem);
   position: relative;
   overflow: hidden;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
 }
 
-/* Removed — Apple has no decorative radial gradient glows */
-.heroGlow {
-  display: none;
-}
-
-.splitHero {
-  padding: 1rem 0;
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 3rem;
+.centeredHero {
+  display: flex;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
   width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
   position: relative;
   z-index: 1;
 }
 
-@media (min-width: 768px) {
-  .splitHero {
-    padding: 0;
-    grid-template-columns: 1.15fr 1fr;
-    gap: 3vw;
-    align-items: flex-start;
-  }
-}
-
-.splitContent {
-  text-align: center;
+.heroContent {
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
+  width: 100%;
 }
 
-@media (min-width: 768px) {
-  .splitContent {
-    text-align: left;
-    align-items: flex-start;
-  }
-}
-
-/* Apple hero-display: 56px / 600 / 1.07 / -0.28px (handled by h1 in globals) */
 .heroTitle {
-  font-size: clamp(2.125rem, 1.8rem + 3.5vw, 3.5rem);
-  font-weight: 600;
-  line-height: 1.07;
-  letter-spacing: -0.02em;
-  margin-bottom: 24px;
-  max-width: 700px;
-  color: var(--text-primary);
+  font-size: clamp(2.35rem, 5vw, 4.25rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  color: #0f172a;
+  margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
+  max-width: 860px;
+  text-wrap: balance;
 }
 
-@media (min-width: 768px) {
-  .heroTitle {
-    margin-bottom: 2vw;
-    line-height: 1.05;
-  }
-}
-
-/* Apple lead: 28px / 400 / 1.14 */
 .heroSubtitle {
-  font-size: clamp(1.0625rem, 1rem + 1vw, 1.75rem);
+  font-size: clamp(1.05rem, 1.4vw, 1.3rem);
   font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: 0.012em;
-  color: var(--text-secondary);
-  max-width: 560px;
-  margin-bottom: 32px;
-}
-
-@media (min-width: 768px) {
-  .heroSubtitle {
-    margin-bottom: 3vw;
-  }
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: #475569;
+  max-width: 680px;
+  margin-bottom: clamp(1.75rem, 3vw, 2.5rem);
+  text-wrap: balance;
 }
 
 .heroActions {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 1rem;
+  gap: 14px;
+  width: 100%;
   flex-wrap: wrap;
-  width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 480px) {
   .heroActions {
-    justify-content: flex-start;
-    gap: 1.5vw;
-    flex-wrap: nowrap;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .heroActions > * {
+    width: 100%;
+    justify-content: center;
   }
 }
 
-.heroBtn {
-  padding: 0.875rem 1.75rem !important;
-  font-size: 1rem !important;
-  border-radius: 9999px !important;
-  white-space: nowrap;
-  height: auto !important;
-  flex: 1 1 auto;
-}
-
-@media (min-width: 768px) {
-  .heroBtn {
-    padding: 1.2vw 2.4vw !important;
-    font-size: 1.2vw !important;
-    flex: 0 0 auto;
-  }
-}
-
-/* Product renders get the single Apple shadow — no box decoration */
-.heroImageWrapper {
-  position: relative;
-  border-radius: 0;
-  overflow: visible;
-  box-shadow: var(--shadow-product);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  display: flex;
-}
-
-/* Dashboard Mockup */
-.dashboardMockup {
-  position: relative;
-  max-width: 1000px;
-  margin: 0 auto;
-  border-radius: var(--border-radius-lg);
-  border: 1px solid var(--border-color);
-  background: var(--bg-primary);
-  box-shadow: var(--shadow-premium-hover);
-  aspect-ratio: 16/9;
-  display: flex;
-  flex-direction: column;
-  overflow: hidden;
-}
-
-.mockupHeader {
-  height: 40px;
-  border-bottom: 1px solid var(--border-color);
-  display: flex;
-  align-items: center;
-  padding: 0 var(--spacing-sm);
-  gap: 8px;
-  background: var(--bg-secondary);
-}
-
-.mockupDot {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--border-color);
-}
-
-.mockupBody {
-  flex: 1;
-  display: flex;
-  padding: var(--spacing-md);
-  gap: var(--spacing-md);
-}
-
-.mockupSidebar {
-  width: 200px;
-  border-right: 1px solid var(--border-color);
-  display: flex;
-  flex-direction: column;
-  gap: var(--spacing-sm);
-}
-
-.mockupItem {
-  height: 24px;
-  border-radius: var(--border-radius-sm);
-  background: var(--bg-secondary);
-}
-
-.mockupContent {
-  flex: 1;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--spacing-md);
-}
-
-.mockupCard {
-  background: var(--bg-secondary);
-  border-radius: var(--border-radius-sm);
-  height: 100px;
-}
-
-/* Floating Cards */
-.floatingCard {
-  position: absolute;
-  background: var(--bg-primary);
-  border: 1px solid var(--border-color);
-  border-radius: var(--border-radius-md);
-  padding: var(--spacing-sm) var(--spacing-md);
-  box-shadow: var(--shadow-premium);
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  font-weight: 500;
-  animation: float 6s ease-in-out infinite;
-}
-
-.floatingCard1 {
-  top: 10%;
-  left: -5%;
-  animation-delay: 0s;
-}
-
-.floatingCard2 {
-  top: 40%;
-  right: -5%;
-  animation-delay: 2s;
-}
-
-.floatingCard3 {
-  bottom: 20%;
-  left: -2%;
-  animation-delay: 4s;
-}
-
-@keyframes float {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* Sections */
-/* Apple display-lg: 40px / 600 / 1.10 / -0.02em */
-.sectionTitle {
-  font-size: clamp(1.75rem, 1.5rem + 2vw, 2.5rem);
-  font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
-  text-align: center;
-  color: inherit;
-}
-
-/* Apple lead: 28px / 400 / 1.14 */
-.sectionSubtitle {
-  font-size: clamp(1.0625rem, 1rem + 0.75vw, 1.75rem);
-  font-weight: 400;
-  line-height: 1.14;
-  letter-spacing: 0.012em;
-  color: inherit;
-  opacity: 0.75;
-  text-align: center;
-  margin-bottom: var(--spacing-xxl);
-  max-width: 600px;
-  margin-inline: auto;
-}
-
-/* Apple product-tile-dark: #272729, no decorative backgrounds */
-.sectionDark {
-  background-color: var(--bg-tile-dark);
-  color: var(--text-on-dark);
-  padding: var(--spacing-section) 0;
-  position: relative;
-  overflow: hidden;
-}
-
-.sectionDark .sectionTitle {
-  color: var(--text-on-dark);
-}
-
-.sectionDark .sectionSubtitle {
-  color: var(--text-muted-dark);
-  opacity: 1;
-}
-
-/* Dark Feature List */
-.featureListDark {
-  max-width: 900px;
-}
-
-@media (min-width: 768px) {
-  .featureListDark {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    margin: 0 auto;
-    gap: var(--spacing-lg);
-  }
-}
-
-/* Dark feature cards: surface only, no shadows */
-.featureItemDark {
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  gap: 12px;
-  padding: 24px;
-  border-radius: var(--border-radius-lg);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  transition: background var(--transition-fast), border-color var(--transition-fast);
-}
-
-@media (min-width: 768px) {
-  .featureItemDark {
-    flex-direction: row;
-  }
-}
-
-.featureItemDark:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
-  transform: translateY(-2px);
-}
-
-.featureTextDark {
-  font-size: 1.125rem;
-  font-weight: 500;
-  color: #e4e4e7;
-  margin-bottom: 0.25rem;
-}
-
-.featureDescDark {
-  font-size: 0.9rem;
-  color: #a1a1aa;
-}
-
-/* Apple: no shadow on CTA section — border-top is the section divider */
-.ctaPremium {
-  position: relative;
-  background-color: var(--bg-secondary); /* parchment tile alternates with white hero */
-  padding: var(--spacing-section) 0;
-  text-align: center;
-}
-
-/* Apple parchment tile — #f5f5f7, alternates with white sections */
-.sectionParchment {
-  background-color: var(--bg-secondary);
-  padding: var(--spacing-section) 0;
-}
-
-/* Bento Grid */
-
-@media (min-width: 768px) {
-  .bentoGrid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-md);
-  }
-}
-
-@media (min-width: 1024px) {
-  .bentoGrid {
-    grid-template-columns: repeat(3, 1fr);
-  }
-}
-
-.bentoLarge {
-  grid-column: span 1;
-  position: relative;
-  overflow: hidden;
-}
-
-@media (min-width: 768px) {
-  .bentoLarge {
-    grid-column: span 2;
-  }
-}
-
-
-
-
-
-.iconWrapper {
-  width: 48px;
-  height: 48px;
-  background: var(--bg-secondary);
-  border-radius: var(--border-radius-md);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: var(--spacing-md);
-}
-
-.statsGrid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--spacing-lg);
-}
-
-.statItem {
-  text-align: center;
-}
-
-.statValue {
-  font-size: 3rem;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin-bottom: var(--spacing-xs);
-}
-
-.statLabel {
-  color: var(--text-secondary);
-  font-weight: 500;
-}
-
-@media (min-width: 768px) {
-  .grid3 {
-    grid-template-columns: repeat(3, 1fr);
-  }
-
-  .statsGrid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-}
-
+/* Trust Metrics Row — Centered Stat Strip */
 .heroMetrics {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  gap: clamp(16px, 3.5vw, 48px);
+  max-width: 680px;
   width: 100%;
-  margin-top: 48px;
-  border-top: 1px solid var(--border-color);
-  padding-top: 32px;
+  margin-top: clamp(2.5rem, 5vw, 4rem);
+  border-top: 1px solid rgba(15, 23, 42, 0.08);
+  padding-top: clamp(1.5rem, 3vw, 2.25rem);
+}
+
+@media (max-width: 420px) {
+  .heroMetrics {
+    gap: 8px;
+  }
 }
 
 .metricItem {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
   gap: 4px;
 }
 
 .metricValue {
-  font-size: 24px;
-  font-weight: 600;
-  color: var(--text-primary);
-  line-height: 1;
+  font-size: clamp(1.4rem, 2.4vw, 2.25rem);
+  font-weight: 700;
+  color: #0f172a;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
 }
 
 .metricLabel {
-  font-size: 12px;
-  color: var(--text-secondary);
-  font-weight: 400;
+  font-size: clamp(0.75rem, 0.9vw, 0.875rem);
+  color: #64748b;
+  font-weight: 500;
+  line-height: 1.3;
   letter-spacing: -0.01em;
+}
+
+/* Section Common Styles */
+.sectionParchment {
+  background-color: #f8fafc;
+  padding: clamp(3.5rem, 7vw, 6.5rem) 0;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.sectionHeader {
+  text-align: center;
+  max-width: 720px;
+  margin: 0 auto clamp(2rem, 4vw, 3.5rem);
+}
+
+.sectionTag {
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #1e40af;
+  margin-bottom: 10px;
+}
+
+.sectionTitle {
+  font-size: clamp(1.75rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+  color: #0f172a;
+  margin-bottom: 12px;
+  text-wrap: balance;
+}
+
+.sectionSubtitle {
+  font-size: clamp(0.95rem, 1.2vw, 1.15rem);
+  font-weight: 400;
+  line-height: 1.55;
+  color: #64748b;
+  margin: 0 auto;
+}
+
+/* Dark Enterprise Section (School ERP) */
+.sectionDark {
+  background-color: #090d16;
+  color: #ffffff;
+  padding: clamp(4rem, 8vw, 7.5rem) 0;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sectionDark .sectionTag {
+  color: #60a5fa;
+}
+
+.sectionDark .sectionTitle {
+  color: #ffffff;
+}
+
+.sectionDark .sectionSubtitle {
+  color: #94a3b8;
+}
+
+.darkCtas {
+  text-align: center;
+  margin-top: clamp(2rem, 4vw, 3.5rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+/* Final CTA Section */
+.ctaPremium {
+  background: #ffffff;
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  position: relative;
+}
+
+.ctaCard {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: clamp(18px, 3vw, 28px);
+  padding: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 4vw, 3.5rem);
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto;
+  box-shadow: 
+    0 1px 3px rgba(15, 23, 42, 0.04),
+    0 16px 40px -12px rgba(15, 23, 42, 0.06);
+}
+
+.ctaCard .sectionTitle {
+  margin-bottom: 14px;
+}
+
+.ctaCard .sectionSubtitle {
+  margin-bottom: 2rem;
+  max-width: 580px;
+}
+
+.ctaActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+  .ctaActions {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .ctaActions > * {
+    width: 100%;
+    justify-content: center;
+  }
 }

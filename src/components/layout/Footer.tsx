@@ -5,7 +5,7 @@ import styles from './Footer.module.css';
 export const Footer = () => {
   return (
     <footer className={styles.footer}>
-      <div className={`container`}>
+      <div className="container">
         <div className={styles.grid}>
           <div className={styles.brand}>
             <Link href="/" className={styles.logo}>
@@ -45,9 +45,9 @@ export const Footer = () => {
 
         <div className={styles.bottom}>
           <p>&copy; {new Date().getFullYear()} Vidyakrit. All rights reserved.</p>
-          <div className={styles.legalLinks} style={{ display: 'flex', gap: '1.5rem' }}>
-            <Link href="/privacy-policy" className={styles.link} style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Privacy Policy</Link>
-            <Link href="/terms-of-service" className={styles.link} style={{ fontSize: '0.875rem', color: 'var(--text-secondary)' }}>Terms of Service</Link>
+          <div className={styles.legalLinks}>
+            <Link href="/privacy-policy" className={styles.legalLink}>Privacy Policy</Link>
+            <Link href="/terms-of-service" className={styles.legalLink}>Terms of Service</Link>
           </div>
         </div>
       </div>
