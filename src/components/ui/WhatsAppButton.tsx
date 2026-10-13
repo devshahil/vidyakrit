@@ -5,7 +5,7 @@ import styles from './WhatsAppButton.module.css';
 
 export const WhatsAppButton = () => {
   // Replace with the user's phone number and optional default message
-  const phoneNumber = "919693401299";
+  const phoneNumber = "917856936201";
   const defaultMessage = "Hi Vidyakrit Team! I would like to know more about your services.";
 
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(defaultMessage)}`;
