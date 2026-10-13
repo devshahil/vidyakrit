@@ -12,11 +12,23 @@ export const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 10);
+      setIsScrolled(window.scrollY > 12);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  // Prevent background scrolling when mobile drawer is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMobileMenuOpen]);
 
   const navLinks = [
     { label: 'Home', href: '/' },
@@ -28,7 +40,7 @@ export const Navbar = () => {
 
   return (
     <>
-      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
+      <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`} aria-label="Main Navigation">
         <div className={`container ${styles.container}`}>
           <Link href="/" className={styles.logo}>
             <span>Vidyakrit</span>
@@ -48,23 +60,36 @@ export const Navbar = () => {
           </div>
 
           <button
+            type="button"
             className={styles.mobileMenuBtn}
             onClick={() => setIsMobileMenuOpen(true)}
             aria-label="Open menu"
           >
-            <Menu size={24} />
+            <Menu size={20} />
           </button>
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`}>
+      {/* Backdrop overlay */}
+      <div 
+        className={`${styles.backdrop} ${isMobileMenuOpen ? styles.backdropOpen : ''}`}
+        onClick={() => setIsMobileMenuOpen(false)}
+        aria-hidden="true"
+      />
+
+      {/* Mobile Drawer Menu */}
+      <div className={`${styles.mobileMenu} ${isMobileMenuOpen ? styles.mobileMenuOpen : ''}`} role="dialog" aria-modal="true">
         <div className={styles.mobileMenuHeader}>
           <Link href="/" className={styles.logo} onClick={() => setIsMobileMenuOpen(false)}>
             <span>Vidyakrit</span>
           </Link>
-          <button onClick={() => setIsMobileMenuOpen(false)} aria-label="Close menu">
-            <X size={24} />
+          <button 
+            type="button"
+            className={styles.closeBtn}
+            onClick={() => setIsMobileMenuOpen(false)} 
+            aria-label="Close menu"
+          >
+            <X size={18} />
           </button>
         </div>
         
@@ -79,7 +104,11 @@ export const Navbar = () => {
               {link.label}
             </Link>
           ))}
-          <Link href="/contact" className={styles.mobileNavLink} onClick={() => setIsMobileMenuOpen(false)}>
+          <Link 
+            href="/contact" 
+            className={styles.mobileNavLink} 
+            onClick={() => setIsMobileMenuOpen(false)}
+          >
             Contact
           </Link>
         </div>
